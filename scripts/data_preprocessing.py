@@ -39,7 +39,7 @@ def encode_categorical_vars(df, column_name):
 
     dummies = pd.get_dummies(df[column_name])
     # change True or False to yes or no. So it is same as other data.
-    dummies = dummies.applymap(lambda x: 'yes' if x == 1 else 'no')
+    dummies = dummies.map(lambda x: 'yes' if x == 1 else 'no')
 
     return dummies
 
