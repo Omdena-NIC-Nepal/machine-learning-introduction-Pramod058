@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 def read_csv(path):
     return pd.read_csv(path)
@@ -11,42 +11,26 @@ def handle_missing_values(df):
     df = df.dropna()
     return df
 
-def handling_outliers(df, column):
-    
-    """Detects outliers in a given column using the IQR method."""
+def handling_outliers(df):  
+    outlier_info = {}
+    for cols in df.columns:
+        Q1 = df[cols].quantile(0.25)
+        Q3 = df[cols].quantile(0.75)
+        IQR = Q3 - Q1
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+        outliers = df[(df[cols] < lower_bound) | (df[cols] > upper_bound)]
+        outlier_info[cols] = len(outliers)
 
-    if column not in df.columns:
-        return f"Column '{column}' not found in DataFrame."
-    
-    # Compute Q1, Q3, and IQR
-    Q1 = df[column].quantile(0.25)
-    Q3 = df[column].quantile(0.75)
-    IQR = Q3 - Q1
-    
-    # Define outlier range
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
+        no_outliers = df = df[(df[cols] >= lower_bound) & (df[cols] <= upper_bound)]
 
-    # Filter outliers
-    outliers = df[column][(df[column] < lower_bound) | (df[column] > upper_bound)]
-    
-    return outliers
+    return outlier_info, no_outliers
 
 
-def encode_categorical_vars(df, column_name):
-    '''This returns the changed data of catergorical values by separating based on the status
-    so that ML runs effectively'''
+def normalize_data(x):
+    scaler = MinMaxScaler()
+    return scaler.fit_transform(x)
 
-    dummies = pd.get_dummies(df[column_name])
-    # change True or False to yes or no. So it is same as other data.
-    dummies = dummies.map(lambda x: 'yes' if x == 1 else 'no')
-
-    return dummies
-
-def encode_bools_to_binary(df, bool_columns):
-    df[bool_columns] = df[bool_columns].apply(lambda x: x.map({'yes': 1, 'no': 0}))
-    
-    return df
 
 
 def standardize_data(df):
