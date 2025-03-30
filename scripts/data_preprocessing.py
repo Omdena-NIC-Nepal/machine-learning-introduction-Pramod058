@@ -31,8 +31,6 @@ def normalize_data(x):
     scaler = MinMaxScaler()
     return scaler.fit_transform(x)
 
-
-
 def standardize_data(df):
     scaler = StandardScaler()
     scaled_data = scaler.fit_transform(df)

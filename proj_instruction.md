@@ -86,6 +86,7 @@ Steps:
 - Plot residuals to check the assumptions of linear regression.
 - Compare model performance with different feature sets or preprocessing steps.
 - Script: scripts/evaluate_model.py
+
 ### 5. Feature Engineering and Improvement
 #### Task 5: Feature Engineering
 
