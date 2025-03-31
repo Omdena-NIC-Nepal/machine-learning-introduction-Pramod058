@@ -1,0 +1,10 @@
+# Core Libraries
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+
+# Jupyter Notebook Support
+jupyterlab
+ipykernel
