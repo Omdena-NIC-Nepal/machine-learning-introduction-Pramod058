@@ -2,6 +2,7 @@ from sklearn.linear_model import LinearRegression
 
 
 def create_regression_model():
+    # initiate linear regression model
     return LinearRegression()
 
 

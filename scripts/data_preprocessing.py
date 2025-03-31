@@ -7,7 +7,7 @@ def read_csv(path):
     return pd.read_csv(path)
 
 def handle_missing_values(df):
-    # drops every missing values.
+    # drops  missing values.
     return df.dropna()
 
 def handling_outliers(df):  

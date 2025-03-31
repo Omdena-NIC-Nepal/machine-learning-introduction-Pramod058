@@ -16,7 +16,7 @@ def scatterplot(Y, ytest, ypred, alpha):
     plt.plot([Y.min(), Y.max()], [Y.min(), Y.max()], color= "red")
     plt.xlabel("Actual values")
     plt.ylabel("Predicted values")
-    plt.title("Predicted vs Actual values")
+    plt.title("Predicted vs. Actual values")
 
     return plt
 
