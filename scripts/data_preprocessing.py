@@ -8,8 +8,7 @@ def read_csv(path):
 
 def handle_missing_values(df):
     # drops every missing values.
-    df = df.dropna()
-    return df
+    return df.dropna()
 
 def handling_outliers(df):  
     outlier_info = {}
