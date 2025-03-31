@@ -33,6 +33,16 @@ This project demonstrates the application of Linear Regression for predicting ho
 ├── .gitignore
 ```
 
+Note: │   ├── only_x.csv
+│   ├── only_ycsv
+│   ├── X_test.csv
+│   ├── X_train.csv
+│   ├── y_pred_df.csv
+│   ├── y_test.csv
+│   ├── y_train.csv
+
+These files automatically generates once the code is runned. 
+
 ## Steps to View and Run the Code
 
 ### 1. Clone the Repository
