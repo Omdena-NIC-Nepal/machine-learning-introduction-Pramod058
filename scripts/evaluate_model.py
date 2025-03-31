@@ -1,14 +1,14 @@
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 import matplotlib.pyplot as plt
 
-def meanSquaredError(ytest, ypred):
-    return mean_squared_error(ytest, ypred)
+def meanSquaredError(a, b):
+    return mean_squared_error(a, b)
 
-def meanAbsoluteError(ytest, ypred):
-    return mean_absolute_error(ytest, ypred)
+def meanAbsoluteError(a, b):
+    return mean_absolute_error(a, b)
 
-def r2Score(ytest, ypred):
-    return r2_score(ytest, ypred)
+def r2Score(a, b):
+    return r2_score(a, b)
 
 
 def scatterplot(Y, ytest, ypred, alpha):
